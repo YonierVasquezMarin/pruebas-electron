@@ -1,12 +1,18 @@
 {
   "name": "pruebas-electron",
   "version": "0.0.0",
+  "description": "Pruebas de electron",
+  "author": "Developer Yonier",
+  "license": "MIT",
+  "main": "./main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-electron": "ng build --configuration=production && electron .",
+    "platform-binaries": "ng build --configuration=production && electron-builder --config electron-builder-config.json"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +24,8 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "electron": "^28.1.4",
+    "electron-builder": "^24.9.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
