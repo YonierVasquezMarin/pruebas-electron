@@ -10,9 +10,9 @@ import { dialog } from 'electron';
 })
 export class VisualizarPdfsComponent {
     abrirPdfs() {
-        dialog.showOpenDialog({
-            properties: ['openFile', 'multiSelections'],
-            filters: [{ name: 'PDFs', extensions: ['pdf'] }],
-        });
+        // dialog.showOpenDialog({
+        //     properties: ['openFile', 'multiSelections'],
+        //     filters: [{ name: 'PDFs', extensions: ['pdf'] }],
+        // });
     }
 }
