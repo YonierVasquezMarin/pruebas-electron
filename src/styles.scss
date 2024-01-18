@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+main {
+    padding: 1rem;
+
+    button {
+        margin: 1rem;
+        padding: 0.5rem 1.3rem;
+        background-color: rgb(171, 11, 171);
+        border: none;
+        border-radius: 4px;
+        color: rgb(239, 235, 235);
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: rgb(157, 9, 157);
+    }
+
+    button:active {
+        background-color: rgb(144, 8, 144);
+    }
+}
