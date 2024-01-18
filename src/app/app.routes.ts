@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import { VisualizarPdfsComponent } from './visualizar-pdfs/visualizar-pdfs.component';
 
 export const routes: Routes = [
     {
@@ -9,6 +10,10 @@ export const routes: Routes = [
     {
         path: 'pagina-principal',
         component: PaginaPrincipalComponent,
+    },
+    {
+        path: 'visualizar-pdfs',
+        component: VisualizarPdfsComponent,
     },
     {
         path: '**',
