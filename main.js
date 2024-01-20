@@ -12,7 +12,8 @@ createWindow = () => {
         resizable: false,
         webPreferences: {
             contextIsolation: false,
-            nodeIntegration: true
+            nodeIntegration: true,
+            preload: path.join(__dirname, "preload.js")
         }
     });
 
