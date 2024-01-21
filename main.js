@@ -33,7 +33,6 @@ createWindow = () => {
             ]
         }).then(result => {
             if (!result.canceled) {
-                console.log(result);
                 event.sender.send('abrir-pdf', result.filePaths[0]);
             }
         }).catch(err => {
