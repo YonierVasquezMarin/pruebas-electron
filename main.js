@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const url = require("url");
 const path = require("path");
 
@@ -24,6 +24,24 @@ createWindow = () => {
     }));
 
     appWin.setMenu(null);
+
+    ipcMain.on('abrir-pdf', (event, arg) => {
+        dialog.showOpenDialog(appWin, {
+            properties: ['openFile'],
+            filters: [
+                { name: 'PDF', extensions: ['pdf'] }
+            ]
+        }).then(result => {
+            if (!result.canceled) {
+                console.log(result);
+                event.sender.send('abrir-pdf', result.filePaths[0]);
+            }
+        }).catch(err => {
+            console.log(err);
+        });
+    });
+
+    appWin.webContents.openDevTools();
 
     appWin.on("closed", () => {
         appWin = null;

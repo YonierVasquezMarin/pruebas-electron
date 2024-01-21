@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { dialog } from 'electron';
 
 @Component({
     selector: 'app-visualizar-pdfs',
@@ -9,10 +8,12 @@ import { dialog } from 'electron';
     styleUrl: './visualizar-pdfs.component.scss',
 })
 export class VisualizarPdfsComponent {
-    abrirPdfs() {
-        // dialog.showOpenDialog({
-        //     properties: ['openFile', 'multiSelections'],
-        //     filters: [{ name: 'PDFs', extensions: ['pdf'] }],
-        // });
+    constructor() {}
+
+    async abrirPdf() {
+        window.ipcRenderer.send('abrir-pdf');
+        window.ipcMain.on('abrir-pdf', (event: any, arg: any) => {
+            console.log(arg);
+        });
     }
 }
