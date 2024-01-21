@@ -1,3 +1,8 @@
+body {
+    background-color: #2b2b2b;
+    font-family: sans-serif;
+}
+
 main {
     padding: 1rem;
 
@@ -18,4 +23,8 @@ main {
     button:active {
         background-color: rgb(144, 8, 144);
     }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    color: #b2afaf;
 }
