@@ -10,6 +10,7 @@ createWindow = () => {
         height: 800,
         title: "Pruebas de Electron",
         resizable: true,
+        icon: path.join(__dirname, "src/assets/platform-icons/background.png"),
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true,
