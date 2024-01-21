@@ -1,4 +1,6 @@
 <main>
     <button (click)="abrirPdf()">Abrir PDF</button>
-    <section></section>
+    <section *ngIf="rutaPdf">
+        <embed [src]="rutaPdf | safe" type="application/pdf" width="100%" height="800px" />
+    </section>
 </main>
