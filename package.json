@@ -6,12 +6,8 @@
   "license": "MIT",
   "main": "./main.js",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
     "build-electron": "ng build --configuration=development && electron .",
+    "build-electron-prod": "ng build --configuration=production && electron .",
     "platform-binaries": "ng build --configuration=production && electron-builder --config electron-builder-config.json"
   },
   "private": true,
