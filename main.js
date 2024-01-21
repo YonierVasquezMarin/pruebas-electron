@@ -6,10 +6,10 @@ let appWin;
 
 createWindow = () => {
     appWin = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1300,
+        height: 800,
         title: "Pruebas de Electron",
-        resizable: false,
+        resizable: true,
         webPreferences: {
             contextIsolation: false,
             nodeIntegration: true,
