@@ -6,8 +6,6 @@ let appWin;
 
 createWindow = () => {
     appWin = new BrowserWindow({
-        width: 1300,
-        height: 800,
         title: "Pruebas de Electron",
         resizable: true,
         icon: path.join(__dirname, "src/assets/platform-icons/background.png"),
@@ -25,6 +23,8 @@ createWindow = () => {
     }));
 
     appWin.setMenu(null);
+
+    appWin.maximize();
 
     ipcMain.on('abrir-pdf', (event, arg) => {
         dialog.showOpenDialog(appWin, {
