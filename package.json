@@ -6,8 +6,9 @@
   "license": "MIT",
   "main": "./src/electron/main.js",
   "scripts": {
+    "electron": "electron .",
     "build-electron-debug": "ng build --configuration=development && electron .",
-    "build-electron-prod": "ng build --configuration=production && electron .",
+    "build-electron": "ng build --configuration=production && electron .",
     "platform-binaries": "ng build --configuration=production && electron-builder --config src/electron/builder/builder-config.json"
   },
   "private": true,
