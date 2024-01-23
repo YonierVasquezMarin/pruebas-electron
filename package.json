@@ -4,11 +4,11 @@
   "description": "Pruebas de electron",
   "author": "Developer Yonier",
   "license": "MIT",
-  "main": "./main.js",
+  "main": "./src/electron/main.js",
   "scripts": {
-    "build-electron": "ng build --configuration=development && electron .",
+    "build-electron-debug": "ng build --configuration=development && electron .",
     "build-electron-prod": "ng build --configuration=production && electron .",
-    "platform-binaries": "ng build --configuration=production && electron-builder --config electron-builder-config.json"
+    "platform-binaries": "ng build --configuration=production && electron-builder --config src/electron/builder/builder-config.json"
   },
   "private": true,
   "dependencies": {
