@@ -1,6 +1,7 @@
-const { BrowserWindow, app, ipcMain, dialog } = require("electron");
+const { BrowserWindow, app } = require("electron");
 const url = require("url");
 const path = require("path");
+const ChannelActivator = require("./channel-activator/channel-activator")
 
 class Main {
     #appWindow
@@ -59,20 +60,9 @@ class Main {
     }
 
     #activateChannels() {
-        ipcMain.on('abrir-pdf', (event, arg) => {
-            dialog.showOpenDialog(this.#appWindow, {
-                properties: ['openFile'],
-                filters: [
-                    { name: 'PDF', extensions: ['pdf'] }
-                ]
-            }).then(result => {
-                if (!result.canceled) {
-                    event.sender.send('abrir-pdf', result.filePaths[0]);
-                }
-            }).catch(err => {
-                console.log(err);
-            });
-        });
+        new ChannelActivator({
+            appWindow: this.#appWindow
+        }).activateChannels()
     }
 }
 
