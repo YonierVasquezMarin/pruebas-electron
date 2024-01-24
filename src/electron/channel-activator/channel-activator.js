@@ -22,9 +22,13 @@ class ChannelActivator {
         ipcMain.on('open-file-dialog', async (event, arg) => {
             try {
                 const result = await dialog.showOpenDialog(this.#parameters.appWindow, arg)
-                if (!result.canceled) {
-                    event.sender.send('file-dialog-opened', result.filePaths);
+                let answer = {}
+                if (result.canceled) {
+                    answer = {ok: false, result: null}
+                } else {
+                    answer = {ok: true, result: result.filePaths}
                 }
+                event.sender.send('file-dialog-opened', answer);
             } catch (error) {
                 console.log(error);
             }
