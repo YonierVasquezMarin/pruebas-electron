@@ -1,4 +1,4 @@
-import { LocalFileUrlSafePipe } from './../../pipes/local-file-url-safe.pipe'
+import { LocalFileUrlSafePipe } from './../../pipes/local-file-url-safe.pipe';
 import { NgIf } from '@angular/common';
 import { Component, ChangeDetectorRef } from '@angular/core';
 
@@ -15,9 +15,13 @@ export class VisualizarPdfsComponent {
     rutaPdf!: string;
 
     abrirPdf() {
-        window.ipcRenderer.send('abrir-pdf');
-        window.ipcMain.on('abrir-pdf', (event: any, arg: string) => {
-            this.rutaPdf = arg;
+        window.ipcRenderer.send('open-file-dialog', {
+            properties: ['openFile'],
+            filters: [{ name: 'PDF', extensions: ['pdf'] }],
+        });
+
+        window.ipcRenderer.on('file-dialog-opened', (event: any, arg: string) => {
+            this.rutaPdf = arg[0];
             this.changeDetectorRef.detectChanges();
         });
     }
