@@ -1,7 +1,7 @@
 const { BrowserWindow, app } = require("electron");
 const url = require("url");
 const path = require("path");
-const ChannelActivator = require("./channel-activator/channel-activator")
+const ChannelsActivator = require("./channels/activator/channel-activator")
 
 class Main {
     #appWindow
@@ -60,7 +60,7 @@ class Main {
     }
 
     #activateChannels() {
-        new ChannelActivator({
+        new ChannelsActivator({
             appWindow: this.#appWindow
         }).activateChannels()
     }
