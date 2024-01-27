@@ -10,7 +10,7 @@ function channel(parameters) {
             } else {
                 answer = {ok: true, result: result.filePaths}
             }
-            event.sender.send('file-dialog-opened', answer);
+            event.returnValue = answer;
         } catch (error) {
             console.log(error);
         }
