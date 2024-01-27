@@ -6,8 +6,6 @@ import { SYSTEM_ACTIONS } from '../system-actions/system-actions.enum';
     providedIn: 'root',
 })
 export class OpenFileDialogService {
-    constructor() {}
-
     async openFileDialog(params: Object): Promise<ChannelAnswer> {
         return new Promise((resolve, reject) => {
             const arg = window.ipcRenderer.sendSync('open-file-dialog', params);
