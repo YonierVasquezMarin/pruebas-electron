@@ -7,8 +7,8 @@
   "main": "./src/electron/main.js",
   "scripts": {
     "electron": "electron .",
-    "build-electron-debug": "ng build --configuration=development && electron .",
-    "build-electron": "ng build --configuration=production && electron .",
+    "build-electron-prod": "ng build --configuration=production && electron .",
+    "build-electron": "ng build --configuration=development && electron .",
     "platform-binaries": "ng build --configuration=production && electron-builder --config src/electron/builder/builder-config.json"
   },
   "private": true,
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "pdf-poppler": "^0.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
