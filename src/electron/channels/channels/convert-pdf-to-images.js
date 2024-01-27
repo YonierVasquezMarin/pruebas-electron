@@ -8,15 +8,17 @@ function channel(parameters) {
             const pdfPath = arg.pdfPath
             const outputFolder = arg.outputFolder
             const options = {
-                format: 'jpeg',
+                format: arg.format,
                 out_dir: outputFolder,
-                out_prefix: 'page',
+                out_prefix: arg.outPrefix,
                 page: null
             }
             await pdfPoppler.convert(pdfPath, options);
             answer = {ok: true, result: null}
+            console.log('PDF converted to images successfully!');
         } catch (error) {
             answer = {ok: false, result: error}
+            console.error(error);
         } finally {
             event.returnValue = answer;
         }
